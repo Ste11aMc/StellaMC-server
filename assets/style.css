@@ -1,34 +1,56 @@
-@charset "utf-8";
+/* 全画面表示のための基本スタイル */
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #4A90E2, #7F8C8D);
     color: rgb(223, 193, 193);
 }
 
+.video-background {
+    position: fixed; /* 動画を固定し、スクロールしても背景に固定される */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* コンテンツの背後に配置 */
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ビデオを完全に埋め込む */
+}
+
 .container {
+    position: relative; /* 相対的に位置を決定し、背景動画の上に配置 */
+    z-index: 1; /* 動画の前に配置 */
+    text-align: center;
+}
+
+.button {
+    position: relative; /* ボタンも相対的に配置し、動画の前に表示 */
+    z-index: 1;
     text-align: center;
 }
 
 h2 {
     font-size: 5rem;
-    font-family: 'Courier New', Courier, monospace; /* おしゃれなフォントを使用 */
+    font-family: 'Courier New', Courier, monospace;
     opacity: 0;
 }
+
 .button a {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: large;
 }
+
 .slogan {
     font-size: 30px;
+    margin-top: 10%;
 }
-
 
 .fade-in {
     animation: fadeIn 2s forwards;
@@ -39,36 +61,33 @@ h2 {
         opacity: 1;
     }
 }
+
 .float2{
-    background: #ffffff15;
+    background: #00000015;
     border: 1px solid #ccc;
-    color: #333;
-    padding:20px 30px;
+    color: #00e1ff;
+    padding: 20px 30px;
     display: inline-block;
     text-decoration: none;
     outline: none;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(128, 128, 128, 0.1) ;
-    /*アニメーションの設定*/
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(128, 128, 128, 0.1);
     transition: all .3s;
     margin-top: 10%;
     border-radius: 30px;
 }
 
-/*hoverをしたらボックスの影が拡がり色が濃くなる*/
 .float2:hover {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4), 0 0 50px rgba(128, 128, 128, 0.1) ;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4), 0 0 50px rgba(128, 128, 128, 0.1);
     border-color: transparent;
 }
 
-
-/*========= レイアウトのためのCSS ===============*/
-
-body{
-    vertical-align:middle; 
+/* レイアウトのためのCSS */
+body {
+    vertical-align: middle; 
     padding: 100px 0;
     text-align: center;
-}p{
-    margin: 0 0 10px 0;
 }
 
-
+p {
+    margin: 0 0 10px 0;
+}
