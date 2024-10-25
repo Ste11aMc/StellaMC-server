@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.red {
+    color: red;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #ffffff; /* フォールバック用 */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 2; /* スライドショーの下に表示 */
+}
+
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s; /* 変化を追加 */
+    z-index: 1000;
+}
+
+.menu-btn:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.1); /* ボタンの拡大 */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.9);
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s ease; /* スライドアニメーションを追加 */
+    z-index: 500;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s; /* アニメーションを追加 */
+}
+
+.sidebar ul li a:hover {
+    color: #6a11cb;
+    transform: translateX(5px); /* リンクの移動 */
+}
+
+.logo {
+    position: fixed; /* 位置をfixedに変更 */
+    bottom: 20px; /* 左下に配置 */
+    left: 0px; /* 左からの余白 */
+    z-index: 1000; /* 他の要素の上に表示 */
+}
+
+.logo img {
+    width: 260px; /* サイズを調整 */
+    height: auto; /* アスペクト比を維持 */
+    transition: transform 0.3s; /* ホバー時のアニメーション */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ロゴの拡大 */
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 10%; /* 上からの余白を設定 */
+    right: 10%; /* 右からの余白を設定 */
+    width: 80%; /* スライドショーの幅を調整 */
+    height: 80%; /* スライドショーの高さを調整 */
+    overflow: hidden;
+    z-index: 1; /* スライドショーを最前面に */
+}
+
+.slides {
+    display: none;
+    height: 100%;
+    position: absolute; /* 重なりを管理 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 1s ease; /* スライドの動きにアニメーションを追加 */
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out; /* アニメーションを追加 */
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
