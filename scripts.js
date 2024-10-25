@@ -1,5 +1,6 @@
 const menuBtn = document.querySelector('.menu-btn');
 const sidebar = document.querySelector('.sidebar');
+const indicators = document.querySelectorAll(".indicator"); // インジケーターの要素を取得
 
 menuBtn.addEventListener('click', () => {
     if (sidebar.style.right === '0px') {
@@ -15,17 +16,24 @@ showSlides();
 
 function showSlides() {
     const slides = document.getElementsByClassName("slides");
+    
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
+        indicators[i].classList.remove("active"); // 全てのインジケーターを非アクティブにする
     }
+    
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
+    if (slideIndex > slides.length) {
+        slideIndex = 1;    
+    }
 
     const currentSlide = slides[slideIndex - 1];
     currentSlide.style.display = "block";  
     currentSlide.style.opacity = 0; // 初期状態は透明に
     currentSlide.style.transform = 'scale(0.9)'; // 初期スケール
     fadeIn(currentSlide); // フェードイン処理
+    
+    indicators[slideIndex - 1].classList.add("active"); // 現在のインジケーターをアクティブにする
 
     setTimeout(showSlides, 5000); // 5秒ごとにスライドを切り替え
 }
