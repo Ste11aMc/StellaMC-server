@@ -126,3 +126,24 @@ body {
         opacity: 1;
     }
 }
+
+.indicator-container {
+    position: absolute;
+    bottom: 10px; /* スライドショーの下に配置 */
+    right: 4%; /* 中央に配置 */
+    transform: translateX(-50%); /* 中央に調整 */
+    display: flex; /* 横並びにする */
+    gap: 10px; /* スペースを設定 */
+}
+
+.indicator {
+    width: 80px; /* 幅を設定 */
+    height: 16px; /* 高さを設定 */
+    border-radius: 30%; /* 丸くする */
+    background-color: #ccc; /* グレーの初期色 */
+    transition: background-color 0.3s; /* 色の変化にアニメーションを追加 */
+}
+
+.indicator.active {
+    background-color: #fff; /* 現在表示されているスライドの色 */
+}
