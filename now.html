@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンラインプレイヤー</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #1a2e20; /* 緑がかった背景色 */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .header {
+            margin-bottom: 30px;
+            font-size: 3em; /* ヘッダーのサイズを大きく */
+            color: #4CAF50; /* 緑の色 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .online-info {
+            margin-bottom: 20px;
+            font-size: 1.5em; /* 情報のフォントサイズを大きく */
+        }
+
+        .player-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* プレイヤー間の間隔 */
+            padding: 20px;
+        }
+
+        .player {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            width: calc(100% / 3 - 40px); /* 画面幅に応じて調整 */
+            max-width: 200px; /* 最大幅を設定 */
+        }
+
+        .player img {
+            border-radius: 50%;
+            margin-bottom: 10px;
+            width: 80px; /* アイコンサイズ */
+            height: 80px; /* アイコンサイズ */
+        }
+
+        .player-name {
+            font-size: 1.2em; /* プレイヤー名のサイズを大きく */
+        }
+
+        .player:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .no-players {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html'">戻る</button>
+    <div class="container">
+        <h1 class="header">オンラインプレイヤー</h1>
+        <div class="online-info" id="online-users">現在のプレイヤー数: 0</div>
+        <div id="online-players" class="player-list"></div>
+    </div>
+    <script>
+        async function fetchOnlineUsers() {
+            try {
+                const response = await fetch('https://mcapi.us/server/status?ip=stella.xgames.jp');
+                const data = await response.json();
+                document.getElementById('online-users').textContent = `現在のプレイヤー数: ${data.players.now}`;
+
+                const onlinePlayers = document.getElementById('online-players');
+                onlinePlayers.innerHTML = '';
+
+                if (data.players && data.players.now > 0 && data.players.sample) {
+                    data.players.sample.forEach(player => {
+                        const playerDiv = document.createElement('div');
+                        playerDiv.className = 'player';
+
+                        const playerImg = document.createElement('img');
+                        playerImg.src = `https://crafatar.com/avatars/${player.id}?size=100&overlay`;
+                        playerImg.alt = `${player.name}のスキン`;
+
+                        const playerId = document.createElement('p');
+                        playerId.textContent = player.name;
+                        playerId.className = 'player-name';
+
+                        playerDiv.appendChild(playerImg);
+                        playerDiv.appendChild(playerId);
+                        onlinePlayers.appendChild(playerDiv);
+                    });
+                } else {
+                    onlinePlayers.textContent = '現在オンラインのプレイヤーはいません。';
+                }
+            } catch (error) {
+                console.error('エラー:', error);
+                document.getElementById('online-players').textContent = 'オンラインのユーザー数を取得できませんでした';
+            }
+        }
+
+        // ページが読み込まれたらプレイヤー情報を取得
+        window.onload = fetchOnlineUsers;
+    </script>
+</body>
+</html>
