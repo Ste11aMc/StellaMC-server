@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>すてらに入ろう</title>
-    <link rel="stylesheet" href="style.css">
+    <title>参加方法</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
 </head>
 <body>
     <div class="container">
-        <button class="menu-btn">III</button>
-        <nav class="sidebar">
-            <ul>
-                <li><a href="index.html" class="red">メインページ</a></li>
-                <li><a href="des.html">サーバー概要</a></li>
-                <li><a href="index.html" class="red">知って得する</a></li>
-                <li><a href="#how-to-participate">参加方法</a></li>
-                <li><a href="#rules">ルール</a></li>
-                <li><a href="index.html" class="red">寄付</a></li>
-                <li><a href="plugin.html" class="red">すてらの追加要素</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="overview">
-                <h2>すてらにようこそ</h2>
-                <p>すてらサーバーは、Java、Bedrock両対応のマインクラフトサーバーとなっています。 <br>
-                    バニラ要素に加えて様々な追加コンテンツや便利機能があります。 <br>
-                    バニラだと飽きてしまったプレイヤー建築が好きなプレイヤー、 <br>
-                    レベリングが好きなプレイヤーどなたでも大歓迎です！！ <br>
-                </p>
-            </section>
-            <section id="how-to-participate">
-                <h2>参加方法</h2>
-                <p>ここに参加方法が入ります。</p>
-            </section>
-            <section id="rules">
-                <h2>ルール</h2>
-                <p>ここにルールが入ります。</p>
-            </section>
-        </main>
+        <div class="question-box">
+            <h1>どちらのバージョンですか？</h1>
+            <button class="version-btn" onclick="showPopup('java')">Java版</button>
+            <button class="version-btn" onclick="showPopup('bedrock')">統合版</button>
+        </div>
+        <a href="index.html" class="back-btn">戻る</a> <!-- 戻るボタン -->
     </div>
-    <script src="script.js"></script>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-message"></p>
+            <div id="copy-buttons"></div>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(version) {
+            const popup = document.getElementById('popup');
+            const title = document.getElementById('popup-title');
+            const message = document.getElementById('popup-message');
+            const copyButtons = document.getElementById('copy-buttons');
+
+            if (version === 'java') {
+                title.textContent = 'Java版の参加方法';
+                message.textContent = 'IP: stella.xgames.jp';
+                copyButtons.innerHTML = `<button onclick="copyToClipboard('stella.xgames.jp')">IPをコピー</button>`;
+            } else if (version === 'bedrock') {
+                title.textContent = '統合版の参加方法';
+                message.textContent = 'IP: stella.xgames.jp, ポート: 25565';
+                copyButtons.innerHTML = `
+                    <button onclick="copyToClipboard('stella.xgames.jp')">IPをコピー</button>
+                    <button onclick="copyToClipboard('25565')">ポートをコピー</button>`;
+            }
+
+            popup.style.display = 'flex';
+            popup.classList.add('fade-in');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('fade-in');
+            popup.style.display = 'none';
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("クリップボードにコピーしました: " + text);
+            }).catch(err => {
+                console.error("コピーに失敗しました:", err);
+            });
+
+            closePopup(); // コピー後にポップアップを閉じる
+        }
+    </script>
 </body>
 </html>
