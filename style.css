@@ -164,3 +164,20 @@ main p {
 }
 
 
+.cmd {
+    display: inline-block; /* テキストをブロック要素のように扱う */
+    background-color: #282c34; /* 背景色 */
+    color: #61dafb; /* テキスト色 */
+    padding: 5px 10px; /* 内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+    font-family: 'Courier New', Courier, monospace; /* 等幅フォント */
+    font-size: 14px; /* フォントサイズ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* 影を追加 */
+    transition: background-color 0.3s, transform 0.3s; /* ホバー効果のためのトランジション */
+}
+
+.cmd:hover {
+    background-color: #61dafb; /* ホバー時の背景色 */
+    color: #282c34; /* ホバー時のテキスト色 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
