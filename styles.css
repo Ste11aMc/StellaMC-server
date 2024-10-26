@@ -3,20 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .red {
     color: red;
 }
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    background: #ffffff; /* フォールバック用 */
+    background: #ffffff;
     color: #ffffff;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .container {
     position: relative;
-    z-index: 2; /* スライドショーの下に表示 */
+    z-index: 2;
 }
 
 .menu-btn {
@@ -29,13 +30,13 @@ body {
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s; /* 変化を追加 */
+    transition: background 0.3s, transform 0.3s;
     z-index: 1000;
 }
 
 .menu-btn:hover {
     background: linear-gradient(45deg, #2575fc, #6a11cb);
-    transform: scale(1.1); /* ボタンの拡大 */
+    transform: scale(1.1);
 }
 
 .sidebar {
@@ -46,7 +47,7 @@ body {
     height: 100%;
     background-color: rgba(30, 30, 30, 0.9);
     box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
-    transition: right 0.5s ease; /* スライドアニメーションを追加 */
+    transition: right 0.5s ease;
     z-index: 500;
 }
 
@@ -63,88 +64,117 @@ body {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s, transform 0.3s; /* アニメーションを追加 */
+    transition: color 0.3s, transform 0.3s;
 }
 
 .sidebar ul li a:hover {
     color: #6a11cb;
-    transform: translateX(5px); /* リンクの移動 */
+    transform: translateX(5px);
 }
 
 .logo {
-    position: fixed; /* 位置をfixedに変更 */
-    bottom: 20px; /* 左下に配置 */
-    left: 0px; /* 左からの余白 */
-    z-index: 1000; /* 他の要素の上に表示 */
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000;
 }
 
 .logo img {
-    width: 260px; /* サイズを調整 */
-    height: auto; /* アスペクト比を維持 */
-    transition: transform 0.3s; /* ホバー時のアニメーション */
+    width: 260px;
+    height: auto;
+    transition: transform 0.3s;
 }
 
 .logo img:hover {
-    transform: scale(1.1); /* ロゴの拡大 */
+    transform: scale(1.1);
 }
 
 .slideshow-container {
-    position: absolute;
-    top: 10%; /* 上からの余白を設定 */
-    right: 10%; /* 右からの余白を設定 */
-    width: 80%; /* スライドショーの幅を調整 */
-    height: 80%; /* スライドショーの高さを調整 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    z-index: 1; /* スライドショーを最前面に */
+    z-index: 1;
 }
 
 .slides {
-    display: none;
+    min-width: 100%; /* 各スライドの幅を100%に */
     height: 100%;
-    position: absolute; /* 重なりを管理 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: transform 1s ease; /* スライドの動きにアニメーションを追加 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
+
+.slides.show {
+    display: block;
+    left: 0;
+}
+
+.slides.hide {
+    left: -100%;
+}
+
+.slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex; /* Flexboxを使用してスライドを横並びにする */
+    z-index: 1;
+}
+
+.mySlides {
+    min-width: 100%; /* 各スライドの幅を100%に */
+    height: 100%;
+    display: flex; /* Flexboxを使用してコンテンツを中央に配置 */
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* アニメーション効果 */
+    position: absolute; /* スライドを重ねて配置 */
+}
+
+.mySlides img {
+    width: 90%; /* 画像を90%の幅で表示して少し引き気味に */
+    height: auto;
+    object-fit: cover;
+}
+
+.mySlides:not(:first-child) {
+    transform: translateX(100%); /* 初期状態で右に移動 */
+    opacity: 0; /* 初期状態で透明 */
+}
+
+.mySlides.active {
+    transform: translateX(0); /* アクティブなスライドを元の位置に戻す */
+    opacity: 1; /* アクティブなスライドを表示 */
+}
+
+
+
+
+
+
 .slides img {
-    border-radius:26px;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 1s ease-in-out; /* アニメーションを追加 */
-}
-
-
-@keyframes slideIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.indicator-container {
-    position: absolute;
-    bottom: 10px; /* スライドショーの下に配置 */
-    right: 4%; /* 中央に配置 */
-    transform: translateX(-50%); /* 中央に調整 */
-    display: flex; /* 横並びにする */
-    gap: 10px; /* スペースを設定 */
+    transition: opacity 1s ease-in-out; /* スライドの画像のアニメーション */
 }
 
 .indicator {
-    width: 80px; /* 幅を設定 */
-    height: 16px; /* 高さを設定 */
-    border-radius: 30%; /* 丸くする */
-    background-color: #ccc; /* グレーの初期色 */
-    transition: background-color 0.3s; /* 色の変化にアニメーションを追加 */
+    width: 80px;
+    height: 16px;
+    border-radius: 30%;
+    background-color: #ccc;
+    transition: background-color 0.3s;
 }
 
 .indicator.active {
-    background-color: #fff; /* 現在表示されているスライドの色 */
+    background-color: #fff;
 }
