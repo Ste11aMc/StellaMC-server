@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィールサイト</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-item" onclick="showContent('about')">ホームプラグイン</div>
+            <div class="menu-item" onclick="showContent('skills')">スキルプラグイン</div>
+            <div class="menu-item" onclick="showContent('projects')">木こりプラグイン</div>
+            <div class="menu-item" onclick="showContent('coreprotect')">ログ管理</div>
+            <div class="menu-item" onclick="showContent('funcommands')">エモート系</div>
+            <div class="menu-item" onclick="showContent('blockprotection')">保護系</div>
+            <div class="menu-item" onclick="showContent('villager-trading')">商店街への出店</div>
+        </aside>
+        
+        <main class="content-area">
+            <section id="about" class="content active">
+                <h1>テレポート系</h1>
+                <p>
+                    <br> <span class="cmd">/spawn</span> <br>
+                    説明: 初期スポーン地点にテレポートする。<br>
+                
+                    <br> <span class="cmd">/back</span> <br>
+                    説明: 最後に死んだ場所に戻る。<br>
+                
+                    <br> <span class="cmd">/sethome [名前]</span> <br>
+                    説明: 名前をつけて現在の場所をHOMEとして登録する。<br>
+                
+                    <br> <span class="cmd">/home [名前]</span> <br>
+                    説明: 登録したHOMEの場所にテレポートする。<br>
+                
+                    <br> <span class="cmd">/delhome [名前]</span> <br>
+                    説明: 登録したHOMEを削除する。<br>
+                
+                    <br> <span class="cmd">/tpa [MCID]</span> <br>
+                    説明: 指定したプレイヤーにテレポートリクエストを送信する。<br>
+                
+                    <br> <span class="cmd">/tpaccept</span> <br>
+                    説明: 受け取ったテレポートリクエストを承諾する。<br>
+                
+                    <br> <span class="cmd">/tpdeny</span> <br>
+                    説明: 受け取ったテレポートリクエストを拒否する。<br>
+                </p>
+                
+            </section>
+            <section id="skills" class="content">
+                <h1>スキルプラグイン</h1>
+                <p>スキルを習得させて成長させることができ、<br>
+                    より楽しいマイクラ生活ができます。 <br>
+                    たくさんのスキル:スキルプラグインには戦うスキルや<br>
+                    農業、釣り、建築など、いろんなスキルがあります。<br>
+                    自分の好きなプレイスタイルに合ったスキルを選んで <br>
+                    レベル上げをして使えるスキルを増やしたりできます。<br> <br>
+                    [コマンド一覧] <br>
+    <span class="cmd">/skills</span> <br>
+    1.◦説明: スキルのメニュー画面を開きます。 <br><br>
+
+    <span class="cmd">/skilltop</span> <br>
+    ◦説明: 全スキルのリーダーボードを表示します。<br><br>
+
+    <span class="cmd">/skilltop &lt;skill名&gt;</span> <br>
+    ◦説明: 特定のスキルのリーダーボードを表示します。 <br><br>
+
+    <span class="cmd">/skillrank</span> <br>
+    ◦説明: 自分自身のスキルレベルを表示します。 <br><br>
+
+    <span class="cmd">/skill profile skills &lt;player名&gt;</span> <br>
+    ◦説明: 指定したプレイヤーの全スキルのレベルを表示します。 <br><br>
+
+    <span class="cmd">/stats</span> <br>
+    ◦説明: 自分自身のステータスを確認できます。 <br><br>
+
+    <span class="cmd">/skill top average</span> <br>
+    ◦説明: 全スキルの平均のリーダーボードを表示します。 <br><br>
+
+    <span class="cmd">/skill toggle</span> <br> 
+    ◦説明: 自身の体力と、マナをUIとして画面上に表示します。<br><br> 
+
+    <span class="cmd">/mana</span> <br> 
+    ◦説明: 自身のマナを確認できます。<br><br> 
+
+    <span class="cmd">/skill help</span> <br> 
+    ◦説明: プラグインのコマンドヘルプを表示します。 <br>
+            </p>
+            </section>
+            <section id="projects" class="content">
+                <h1>木こりプラグイン</h1>
+                <p> <br>木を採取する際に、下から上まで掘ると <br>
+                時間もかかり大変ですよね。そんな方へお勧めします。 <br>
+                木を１つ掘るとその木１本をすべて壊すことが出来ます。 <br>
+                これで木材を集めるのに時間がかからなくなるので <br>
+                換金するもよし、建材にするもよしでマイクラの幅が <br>
+                広がること間違いなしです！！！！ <br> <br>
+                <span class="cmd">/tc toggle</span> <br>
+                説明: 木こり機能の有効化/無効化を設定できます。  <br>
+                木こり機能が邪魔になることもあると思うので、 <br>
+                そういった場合はこちらのコマンドを使用してください <br>
+            </p>
+            </section>
+            <section id="coreprotect" class="content">
+                <h1>ログ管理プラグイン</h1>
+                <p>
+                    Core Protectプラグインは、Minecraftのサーバーでのブロックの変更をログに記録し、元に戻すことができる強力なツールです。以下は、よく使われるコマンドの説明です。<br><br>
+            
+                    <span class="cmd">/co inspect</span> (<span class="cmd">/co i</span>) <br>
+                    ◦説明: このコマンドを使用すると、指定したブロックの変更履歴を調査できます。<br>
+                    使用方法: コマンドを入力した後、対象のブロックを右クリックすることで、そのブロックに関する詳細なログ情報を確認できます。<br>
+                    この機能は、特定のプレイヤーが行った変更や破壊を調べるのに役立ちます。<br><br>
+            
+                    <span class="cmd">/co near</span> <br>
+                    ◦説明: 自分の周りのブロックの変更履歴を表示します。<br>
+                    使用方法: コマンドを入力すると、自分の近くにあるブロックの変更情報をリスト表示します。これにより、特定の範囲内での活動を把握することができます。<br><br>
+            
+                    Core Protectを活用することで、サーバー内のプレイヤーの行動を監視し、問題が発生した際の迅速な対応が可能になります。<br>
+                </p>
+            </section>
+            <section id="funcommands" class="content">
+                <h1>楽しいコマンドの使用方法</h1>
+                <p>
+                    Minecraftでは、プレイヤーがさまざまな体勢を取ることができる楽しいコマンドがあります。以下は、そのコマンドの説明です。<br><br>
+            
+                    <span class="cmd">/sit</span> <br>
+                    ◦説明: プレイヤーが座ることができるコマンドです。周囲の景色を楽しみながら、リラックスした姿勢を取ることができます。<br><br>
+            
+                    <span class="cmd">/lay</span> <br>
+                    ◦説明: プレイヤーが寝る体制になります。寝転がった姿勢を取り、仲間と一緒にくつろぐことができます。<br><br>
+            
+                    <span class="cmd">/crawl</span> <br>
+                    ◦説明: プレイヤーが泳ぐ体制になります。水の中での動きがよりリアルに感じられ、泳いでいるように見えます。<br><br>
+            
+                    <span class="cmd">/spin</span> <br>
+                    ◦説明: プレイヤーが回転します。360度回転することで、周囲の景色を楽しむことができます。<br><br>
+            
+                    これらのコマンドを使うことで、ゲーム内での体験がより豊かになります。友達と一緒に楽しんでください！<br>
+                </p>
+            </section>
+            <section id="blockprotection" class="content">
+                <h1>ブロック保護コマンドの使用方法</h1>
+                <p>
+                    Minecraftでは、ブロックの保護や操作に役立つコマンドがあります。以下は、そのコマンドの説明です。<br><br>
+            
+                    <span class="cmd">/lock</span> <br>
+                    ◦説明: ブロックをロックします。特定のプレイヤーのみが操作できるようになります。<br><br>
+            
+                    <span class="cmd">/unlock</span> <br>
+                    ◦説明: ロックを解除します。誰でも操作できるようになります。<br><br>
+            
+                    <span class="cmd">/cprivate</span> <br>
+                    ◦説明: 自分だけ、または特定の人だけが使えるようにブロックを保護します。<br><br>
+            
+                    <span class="cmd">/cpublic</span> <br>
+                    ◦説明: みんなが使えるようにブロックを保護します。<br><br>
+            
+                    <span class="cmd">/cpassword &lt;パスワード&gt;</span> <br>
+                    ◦説明: パスワードでブロックを保護します。指定したパスワードを入力しないと操作できなくなります。<br><br>
+            
+                    <span class="cmd">/cremove</span> <br>
+                    ◦説明: ブロックの保護を解除します。<br><br>
+            
+                    <span class="cmd">/cinfo</span> <br>
+                    ◦説明: ブロックの保護情報を確認します。<br><br>
+            
+                    <span class="cmd">/cmodify public</span> <br>
+                    ◦説明: 共有化します。破壊は設置者のみ可能です。<br><br>
+            
+                    <span class="cmd">/cmodify donation</span> <br>
+                    ◦説明: 他の人がアイテムを入れられるが、取り出せません。<br><br>
+            
+                    <span class="cmd">/cmodify display</span> <br>
+                    ◦説明: 全プレイヤーにアイテムを見せることができます。<br><br>
+            
+                    <span class="cmd">/cmodify password &lt;英数字&gt;</span> <br>
+                    ◦説明: パスワードを設定します。<br><br>
+            
+                    <span class="cmd">/cunlock &lt;パスワード&gt;</span> <br>
+                    ◦説明: パスワードを入力して保護を解除します。<br><br>
+            
+                    <span class="cmd">/cmodify &lt;ユーザー名&gt;</span> <br>
+                    ◦説明: 指定したユーザーと共有します。<br><br>
+            
+                    <span class="cmd">/cautoclose on</span> <br>
+                    ◦説明: ドアが自動で閉まる機能をオンにします。<br><br>
+            
+                    <span class="cmd">/cautoclose off</span> <br>
+                    ◦説明: ドアが自動で閉まる機能をオフにします。<br><br>
+            
+                    <span class="cmd">/chopper on</span> <br>
+                    ◦説明: ホッパーからの搬入出を受け付けるようにします。<br><br>
+            
+                    <span class="cmd">/cpersist</span> <br>
+                    ◦説明: 複数のブロックを一度に操作します。/cpersist を使った後に操作コマンド（例: /unlock）を実行すると、右クリックで連続して操作できます。再度 /cpersist を入力すると操作を終了します。<br><br>
+            
+                    これらのコマンドを使用することで、ブロックの管理がスムーズになります。ぜひ試してみてください！<br>
+                </p>
+            </section>
+            <section id="villager-trading" class="content">
+                <h1>商店街への店の出し方</h1>
+                <p>
+                    村人の卵を手に持った状態で、右クリックをしてチャット欄に「Trading - Shop」と表示させます。<br><br>
+                    
+                    <span class="cmd1">村人の卵を右クリック</span> <br>
+                    ◦説明: チャット欄に「Trading - Shop」と表示されます。<br><br>
+            
+                    その後、アイテムの在庫用に使用したいチェストを右クリックします。<br><br>
+                    
+                    <span class="cmd1">チェストを右クリック</span> <br>
+                    ◦説明: 在庫用のチェストを設定します。<br><br>
+            
+                    Shopを展開したい場所へ村人を召喚するために、再度右クリックします。<br><br>
+                    
+                    <span class="cmd1">村人を召喚するために右クリック</span> <br>
+                    ◦説明: 設定した場所に村人を召喚します。<br><br>
+            
+                    商品を村人へ追加したい場合は、まず在庫用のチェストに買ってもらいたいアイテムを入れておきます。<br><br>
+                    
+                    <span class="cmd1">在庫用のチェストにアイテムを入れる</span> <br>
+                    ◦説明: 買ってもらいたいアイテムをチェストに収納します。<br><br>
+            
+                    その後、シフトキーを押しながら村人を右クリックすると、在庫に追加したアイテムが村人の取引リストに並びます。<br><br>
+                    
+                    <span class="cmd1">シフトしながら村人を右クリック</span> <br>
+                    ◦説明: 村人に在庫アイテムを追加します。<br><br>
+            
+                    アイテムの下にある2マスにはバリアブロックが設定されているため、そこへ買うために必要なアイテムを入れてください。<br><br>
+                    
+                    <span class="cmd1">必要なアイテムをバリアブロックの下へ入れる</span> <br>
+                    ◦説明: 取引に必要なアイテムを設定します。<br><br>
+            
+                    これで村人との商取引が設定され、アイテムの売買が可能になります。<br>
+                </p>
+            </section>
+            
+            
+            
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

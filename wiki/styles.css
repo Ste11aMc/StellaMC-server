@@ -1,0 +1,177 @@
+/* 全体フォント設定 */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    display: flex;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* コンテナとサイドバー */
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 20%;
+    padding-top: 30px;
+    background: linear-gradient(145deg, #a3dbb5, #e6ffe6); /* 自然感のあるグラデーション */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item {
+    width: 80%;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+    transform: scale(1.05) translateY(-5px); /* 浮遊感 */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* メインコンテンツエリア */
+.content-area {
+    width: 80%;
+    display: flex;
+    align-items: flex-start; /* 内容を上に揃える */
+    justify-content: center;
+    background: linear-gradient(145deg, #e3f7ff, #b3e5fc);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow-y: auto; /* 縦スクロールを有効にする */
+    padding: 50px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.content {
+    display: none;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.content.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.content h1 {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 2em;
+    color: #2d6a4f;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* かわいい＆モダンなフォント */
+/* モダン＆かわいいフォント */
+/* モダン＆かわいいフォント */
+/* モダン＆かわいいフォント */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+
+.content p {
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left; /* テキストを左揃え */
+    width: 80%; /* 幅を設定 */
+    margin: 0 auto 20px auto; /* 全体を中央寄せ */
+    max-width: 600px; /* 最大幅の制限 */
+}
+
+
+
+
+
+
+/* ボタンデザイン */
+.button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #88b388;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: #6f9f6f;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cmd {
+    display: inline-block; /* テキストをブロック要素のように扱う */
+    background-color: #282c34; /* 背景色 */
+    color: #61dafb; /* テキスト色 */
+    padding: 5px 10px; /* 内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+    font-family: 'Courier New', Courier, monospace; /* 等幅フォント */
+    font-size: 14px; /* フォントサイズ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* 影を追加 */
+    transition: background-color 0.3s, transform 0.3s; /* ホバー効果のためのトランジション */
+}
+
+.cmd:hover {
+    background-color: #61dafb; /* ホバー時の背景色 */
+    color: #282c34; /* ホバー時のテキスト色 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+.cmd1 {
+    background-color: #ffcc00; /* 背景色 */
+    color: #000; /* 文字の色 */
+    padding: 10px; /* 内側の余白 */
+    border-radius: 5px; /* 角の丸み */
+    border: 2px solid #ff9900; /* ボーダー */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ効果 */
+    font-weight: bold; /* 文字を太くする */
+    display: inline-block; /* インラインブロックにして横に並べられる */
+    margin: 5px 0; /* 上下のマージン */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* スムーズなトランジション */
+}
+
+.cmd1:hover {
+    background-color: #ff9900; /* ホバー時の背景色 */
+    border-color: #cc7a00; /* ホバー時のボーダー色 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* ホバー時のシャドウ効果 */
+    cursor: pointer; /* カーソルをポインターに変える */
+}
+
